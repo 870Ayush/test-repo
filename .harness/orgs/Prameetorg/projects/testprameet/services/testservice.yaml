@@ -1,0 +1,5 @@
+service:
+  name: test-service
+  identifier: testservice
+  orgIdentifier: Prameetorg
+  projectIdentifier: testprameet
