@@ -1,0 +1,45 @@
+pipeline:
+  name: ayush-test
+  identifier: ayushtest
+  projectIdentifier: testprameet
+  orgIdentifier: Prameetorg
+  tags: {}
+  stages:
+    - stage:
+        name: deploy
+        identifier: deploy
+        description: ""
+        type: Deployment
+        spec:
+          deploymentType: Kubernetes
+          service:
+            serviceRef: testservice
+          environment:
+            environmentRef: test
+            deployToAll: false
+            infrastructureDefinitions:
+              - identifier: testinfra
+          execution:
+            steps:
+              - step:
+                  type: ShellScript
+                  name: ShellScript_1
+                  identifier: ShellScript_1
+                  spec:
+                    shell: Bash
+                    executionTarget: {}
+                    source:
+                      type: Inline
+                      spec:
+                        script: echo "hello world"
+                    environmentVariables: []
+                    outputVariables: []
+                  timeout: 10m
+            rollbackSteps: []
+        tags: {}
+        failureStrategies:
+          - onFailure:
+              errors:
+                - AllErrors
+              action:
+                type: Ignore
