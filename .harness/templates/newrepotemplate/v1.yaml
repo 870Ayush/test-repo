@@ -1,0 +1,19 @@
+template:
+  name: new-repo-template
+  identifier: newrepotemplate
+  versionLabel: v1
+  type: Step
+  tags: {}
+  spec:
+    timeout: 10m
+    type: ShellScript
+    spec:
+      shell: Bash
+      executionTarget: {}
+      delegateSelectors: []
+      source:
+        type: Inline
+        spec:
+          script: echo "hello world, from harness NG"
+      environmentVariables: []
+      outputVariables: []
