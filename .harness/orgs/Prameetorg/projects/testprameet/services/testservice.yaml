@@ -16,4 +16,22 @@ service:
           description: ""
           required: false
           value: blr
+      manifests:
+        - manifest:
+            identifier: manifest
+            type: K8sManifest
+            spec:
+              store:
+                type: Github
+                spec:
+                  connectorRef: ayushgh
+                  gitFetchType: Branch
+                  paths:
+                    - templates
+                  repoName: k8manifest
+                  branch: main
+              valuesPaths:
+                - ng_values_dockercfg.yaml
+              skipResourceVersioning: false
+              enableDeclarativeRollback: false
     type: Kubernetes
