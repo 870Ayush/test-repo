@@ -3,3 +3,17 @@ service:
   identifier: testservice
   orgIdentifier: Prameetorg
   projectIdentifier: testprameet
+  serviceDefinition:
+    spec:
+      variables:
+        - name: name
+          type: String
+          description: ""
+          required: false
+          value: ayush
+        - name: city
+          type: String
+          description: ""
+          required: false
+          value: blr
+    type: Kubernetes
