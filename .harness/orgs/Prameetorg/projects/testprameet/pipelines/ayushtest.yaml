@@ -31,7 +31,9 @@ pipeline:
                     source:
                       type: Inline
                       spec:
-                        script: echo "hello world"
+                        script: |-
+                          echo "service input variable <+serviceVariables.name>"
+                          echo "service input variable <+serviceVariables.city>"
                     environmentVariables: []
                     outputVariables: []
                   timeout: 10m
