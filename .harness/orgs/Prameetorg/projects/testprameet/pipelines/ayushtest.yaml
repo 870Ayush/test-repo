@@ -34,6 +34,7 @@ pipeline:
                         script: |-
                           echo "service input variable <+serviceVariables.name>"
                           echo "service input variable <+serviceVariables.city>"
+                          echo "service input variable <+ovverideVariables.college>"
                     environmentVariables: []
                     outputVariables: []
                   timeout: 10m
