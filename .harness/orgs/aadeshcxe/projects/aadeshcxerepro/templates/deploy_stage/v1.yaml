@@ -14,7 +14,9 @@ template:
         arch: Amd64
       runtime:
         type: Cloud
-        spec: {}
+        spec:
+          imageSpec:
+            imageName: ubuntu-latest
       execution:
         steps:
           - step:
