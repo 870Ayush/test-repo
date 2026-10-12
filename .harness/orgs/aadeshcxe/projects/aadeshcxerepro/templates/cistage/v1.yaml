@@ -1,0 +1,30 @@
+template:
+  name: ci-stage
+  identifier: cistage
+  versionLabel: v1
+  type: Stage
+  projectIdentifier: aadeshcxerepro
+  orgIdentifier: aadeshcxe
+  spec:
+    type: CI
+    spec:
+      cloneCodebase: false
+      platform:
+        os: Linux
+        arch: Amd64
+      runtime:
+        type: Cloud
+        spec: {}
+      execution:
+        steps:
+          - step:
+              type: Run
+              name: Export_Codebase_Info
+              identifier: Export_Codebase_Info
+              spec:
+                shell: Sh
+                command: export CODEBASE_INFO_JSON='{"repository":"r","org":"o","branch":"main"}'
+                outputVariables:
+                  - name: CODEBASE_INFO_JSON
+                    type: String
+                    value: CODEBASE_INFO_JSON
