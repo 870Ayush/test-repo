@@ -1,0 +1,30 @@
+template:
+  name: deploy_stage
+  identifier: deploy_stage
+  versionLabel: v1
+  type: Stage
+  projectIdentifier: aadeshcxerepro
+  orgIdentifier: <org>
+  spec:
+    type: CI
+    spec:
+      cloneCodebase: false
+      platform:
+        os: Linux
+        arch: Amd64
+      runtime:
+        type: Cloud
+        spec: {}
+      execution:
+        steps:
+          - step:
+              type: Run
+              name: Echo
+              identifier: Echo
+              spec:
+                shell: Sh
+                command: echo "VALUE=<+stage.variables.target_branch>"
+    variables:
+      - name: target_branch
+        type: String
+        value: <+input>
