@@ -41,11 +41,11 @@ pipeline:
                       cache_intel_use_custom_key: false
                       llm_connector: account.harnessAnthropic
                       mcp_connectors:
-                        - githubmcp
+                        - account.bitbucket_mcp
   properties:
     ci:
       codebase:
-        connectorRef: account.ghconn
+        connectorRef: account.bitbucketconnector
         repoName: simple_python_app
         build: <+input>
         sparseCheckout: []
