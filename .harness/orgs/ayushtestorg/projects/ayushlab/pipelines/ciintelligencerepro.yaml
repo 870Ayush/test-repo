@@ -36,7 +36,7 @@ pipeline:
                   spec:
                     agentName: buildTurbo
                     agentSettings:
-                      model_name: global.anthropic.claude-opus-4-6-v1
+                      model_name: claude-sonnet-4-5-20250929
                       test_agent_llm_connector: ""
                       cache_intel_use_custom_key: false
                       llm_connector: account.harnessAnthropic
