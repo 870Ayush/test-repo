@@ -1,0 +1,54 @@
+pipeline:
+  name: ci-intelligence-repro
+  identifier: ciintelligencerepro
+  projectIdentifier: ayushlab
+  orgIdentifier: ayushtestorg
+  tags: {}
+  stages:
+    - stage:
+        name: agent
+        identifier: agent
+        description: ""
+        type: CI
+        spec:
+          cloneCodebase: true
+          caching:
+            enabled: false
+            override: true
+            paths: []
+          buildIntelligence:
+            enabled: false
+          platform:
+            os: Linux
+            arch: Amd64
+          runtime:
+            type: Cloud
+            spec:
+              size: small
+              imageSpec:
+                imageName: ubuntu-latest
+          execution:
+            steps:
+              - step:
+                  type: Agent
+                  name: Agent_1
+                  identifier: Agent_1
+                  spec:
+                    agentName: buildTurbo
+                    agentSettings:
+                      model_name: global.anthropic.claude-opus-4-6-v1
+                      test_agent_llm_connector: ""
+                      cache_intel_use_custom_key: false
+                      llm_connector: account.harnessAnthropic
+                      mcp_connectors:
+                        - githubmcp
+  properties:
+    ci:
+      codebase:
+        connectorRef: account.ghconn
+        repoName: simple_python_app
+        build: <+input>
+        sparseCheckout: []
+        resources:
+          limits:
+            memory: 1Gi
